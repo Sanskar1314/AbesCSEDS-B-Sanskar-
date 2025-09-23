@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Cards</title>
 </head>
 <body>
-    
+    <div id="itCard" style="width:300px;border:1px solid #333;border-radius:8px;padding:16px;margin:20px;display:inline-block;vertical-align:top;">
+        <h2 style="text-align:center;">IT Branch Students</h2>
+        <div id="itStudents"></div>
+    </div>
+    <div id="otherCard" style="width:300px;border:1px solid #333;border-radius:8px;padding:16px;margin:20px;display:inline-block;vertical-align:top;">
+        <h2 style="text-align:center;">Other Branch Students</h2>
+        <div id="otherStudents"></div>
+    </div>
+    <script>
+        const students = [
+            { name: "Santosh", class: "B.Tech 3rd", Branch: "IT", rollno: "1" },
+            { name: "Vivek", class: "B.Tech 3rd", Branch: "IT", rollno: "2" },
+            { name: "Yash", class: "B.Tech 3rd", Branch: "IT", rollno: "3" },
+            { name: "vaibhav", class: "B.Tech 3rd", Branch: "CSE(DS)", rollno: "4" },
+            { name: "Shubham", class: "B.Tech 3rd", Branch: "CSE", rollno: "5" }
+        ];
+
+        const itEl = document.getElementById("itStudents");
+        const otherEl = document.getElementById("otherStudents");
+
+        for (const s of students) {
+            const card = document.createElement("div");
+            card.className = "student-card";
+            card.innerHTML = `
+            <strong>Name:</strong> ${s.name}<br>
+            <strong>Class:</strong> ${s.class}<br>
+            <strong>Branch:</strong> ${s.Branch}<br>
+            <strong>Roll No.:</strong> ${s.rollno}<br><br>
+            `;
+            (s.Branch === "IT" ? itEl : otherEl).appendChild(card);
+        }
+    </script>
 </body>
 </html>
