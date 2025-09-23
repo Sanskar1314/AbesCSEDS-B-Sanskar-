@@ -9,6 +9,7 @@
     <div id="itCard" style="width:300px;border:1px solid #333;border-radius:8px;padding:16px;margin:20px;display:inline-block;vertical-align:top;">
         <h2 style="text-align:center;">IT Branch Students</h2>
         <div id="itStudents"></div>
+        <button id="hideBtn">Hide</button>
     </div>
     <div id="otherCard" style="width:300px;border:1px solid #333;border-radius:8px;padding:16px;margin:20px;display:inline-block;vertical-align:top;">
         <h2 style="text-align:center;">Other Branch Students</h2>
@@ -37,6 +38,12 @@
             `;
             (s.Branch === "IT" ? itEl : otherEl).appendChild(card);
         }
+        const hideBtn = document.getElementById('hideBtn');
+    const itStudents = document.getElementById('itStudents');
+    hideBtn.onclick = () => {
+      itStudents.style.display = itStudents.style.display === 'none' ? 'block' : 'none';
+      hideBtn.textContent = itStudents.style.display === 'none' ? 'Show' : 'Hide';
+    };
     </script>
 </body>
 </html>
